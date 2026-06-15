@@ -60,7 +60,7 @@
         <Setter Property="Foreground" Value="#FF222222"/>
     </Style>
 
-    <!-- Стиль для информационных TextBlock -->
+
     <Style x:Key="InfoTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Margin" Value="5,2"/>
