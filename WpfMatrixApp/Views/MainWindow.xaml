@@ -20,12 +20,12 @@
         <conv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <conv:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
 
-        <!-- Конвертер: строка не пустая -> Visible -->
+
         <conv:StringNotEmptyToVisibilityConverter x:Key="StringNotEmptyToVisibilityConverter"/>
     </Window.Resources>
 
     <DockPanel>
-        <!-- Меню -->
+
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть..." Command="{Binding OpenFileCommand}" InputGestureText="Ctrl+O"/>
@@ -39,7 +39,7 @@
             </MenuItem>
         </Menu>
 
-        <!-- Основное содержимое -->
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -48,7 +48,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- Панель информации -->
+
             <Border Grid.Row="0" Background="#FFF8F8F8" BorderBrush="#FFDDDDDD" BorderThickness="0,0,0,1" Padding="10,5">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -75,9 +75,8 @@
                 </Grid>
             </Border>
 
-            <!-- Вкладки с DataGrid -->
+
             <TabControl Grid.Row="1" Margin="5">
-                <!-- Вкладка 1: Исходный файл после обработки -->
                 <TabItem Header="Исходный файл после обработки">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -98,8 +97,6 @@
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="Auto"/>
                                                 </Grid.RowDefinitions>
-
-                                                <!-- Заголовок матрицы -->
                                                 <Border Grid.Row="0" Background="#FFE8F0E8" Padding="5,3">
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Матрица" FontWeight="Bold" FontSize="12"/>
@@ -114,7 +111,6 @@
                                                     </StackPanel>
                                                 </Border>
 
-                                                <!-- DataGrid матрицы -->
                                                 <DataGrid Grid.Row="1" 
                                                           ItemsSource="{Binding Data, Converter={StaticResource MatrixToDataTableConverter}}"
                                                           Height="150" MaxHeight="200"/>
@@ -127,7 +123,6 @@
                     </Grid>
                 </TabItem>
 
-                <!-- Вкладка 2: Второй файл (чётные разности) -->
                 <TabItem Header="Второй файл (чётные разности)">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -149,7 +144,6 @@
                                                     <RowDefinition Height="Auto"/>
                                                 </Grid.RowDefinitions>
 
-                                                <!-- Заголовок матрицы -->
                                                 <Border Grid.Row="0" Background="#FFF0E8E8" Padding="5,3">
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Матрица (чётная разность)" FontWeight="Bold" FontSize="12"/>
@@ -158,7 +152,6 @@
                                                     </StackPanel>
                                                 </Border>
 
-                                                <!-- DataGrid матрицы -->
                                                 <DataGrid Grid.Row="1" 
                                                           ItemsSource="{Binding Data, Converter={StaticResource MatrixToDataTableConverter}}"
                                                           Height="150" MaxHeight="200"/>
@@ -172,7 +165,6 @@
                 </TabItem>
             </TabControl>
 
-            <!-- ProgressBar -->
             <Border Grid.Row="2" Background="#FFF8F8F8" BorderBrush="#FFDDDDDD" BorderThickness="0,1,0,0" Padding="10,5"
                     Visibility="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Grid>
@@ -188,7 +180,6 @@
                 </Grid>
             </Border>
 
-            <!-- StatusBar -->
             <StatusBar Grid.Row="3">
                 <StatusBarItem>
                     <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource StatusTextStyle}"/>
